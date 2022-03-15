@@ -1,0 +1,13 @@
+.Anuncio {
+    border:1px;
+    border-color: red;
+    border-style: solid;
+    margin: 2%;
+    background-color: grey;
+    padding: 2%;
+}
+
+.Foto {
+    width: 250px;
+    height: 250px;
+}
