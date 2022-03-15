@@ -1,0 +1,30 @@
+Cliente
+id int
+cadastro/cnpj varchar()
+logradouro varchar() 
+numero varchar()
+cep varchar()
+complemento varchar()
+telefone varchar()
+email varchar()
+
+Fornecedor
+ID int
+Cadastro varchar()
+Nome varchar()
+logradoruro varchar()
+numero varchar() 
+complemento varchar()
+telefone varchar()
+email varchar()
+
+Peça
+ID uint
+Nome varchar()
+modelo varchar()
+ano varchar()
+marca varchar()
+estado (char)
+quantidade int
+idForncedor int fk idFornecedor
+valor double
