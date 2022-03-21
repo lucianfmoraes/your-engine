@@ -25,11 +25,13 @@ def listaTodosFornecedores():
     return jsonify(resultado)
 
 @app.route("/fornecedores",  methods=['POST'])
+@cross_origin()
 def insereFornecedor():
     fornecedor = Fornecedor()
     corpo = request.json
+    print(corpo)
     resultado = fornecedor.insereFornecedor(corpo)
-    return jsonify(resultado)
+    return jsonify({'status': 200})
 
 @app.route("/fornecedores/alterar", methods=['POST'])
 def alteraFornecedor():
@@ -42,7 +44,7 @@ def alteraFornecedor():
 def excluiFornecedor(id):    
     fornecedor = Fornecedor()
     resultado = fornecedor.excluiFornecedor(id)
-    return jsonify(resultado)
+    return jsonify({'status': 'Deleted'})
 
 
 

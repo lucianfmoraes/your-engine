@@ -46,7 +46,7 @@ class Fornecedor(Conexao):
     def excluiFornecedor(self, id):
         conn = self.CriaConexao()
         cursor = conn.cursor()
-        df = cursor = cursor.execute('''DELETE FROM tb_fornecedor WHERE id=%s ''' ,(id))
+        df = cursor.execute('''DELETE FROM tb_fornecedor WHERE id=%s ''' ,(id))
         conn.commit()
         conn.close()
 

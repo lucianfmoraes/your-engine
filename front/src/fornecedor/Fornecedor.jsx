@@ -1,27 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Alert } from 'react-bootstrap';
 import { customGet, customPost } from '../api/Api';
 
 import FornecedorForm from './FornecedorForm';
 import FornecedorLista from './FornecedorLista';
-
-
-
-
-
-
 
 function Fornecedor() {
   const [index,setIndex] = useState(0);
   const [atividades, setAtividades] = useState([]);
   const [atividade, setAtividade] = useState({id:0});
 
-
-
-
-
   useEffect(() => {
-
     const response = async () => {
         const data = await customGet('/fornecedores');
         setAtividades(data);
@@ -34,24 +22,20 @@ function Fornecedor() {
   }, [])
 
   function addAtividade(ativ) {
-    console.log(atividades);
-    let isAtivEmpty = false;
-    isAtivEmpty = Object.values(ativ).some(x => x === null || x === '');
     const addAtividadeAPI = async (ativ) => {
         const data = await customPost('/fornecedores', ativ);
-
     };
-    addAtividadeAPI();
+    addAtividadeAPI(ativ);
+    
     const getAllAtividadesAPI = async () => {
         const data = await customGet('/fornecedores');
         setAtividades(data);
     };
     getAllAtividadesAPI();
     
-    isAtivEmpty ? Alert('Preencha todos os campos.') : (
-        setAtividades([...atividades, 
-        { ...ativ,id: index  }]
-        )
+    setAtividades([...atividades, 
+    { ...ativ,id: index  }]
+    
     );
     console.log(atividades);
   }
@@ -67,18 +51,21 @@ function Fornecedor() {
   }
 
   function deletarAtividade(id){
-    const atividadesFiltradas = atividades.filter(
-      (atividade) => atividade.id !== id
-      );
-    setAtividades([...atividadesFiltradas]);
+    const deleteFornecedorAPI = async (id) => {
+        const data = await customPost(`/fornecedores/excluir/${id}`);
+    };
+    deleteFornecedorAPI(id);
+    const getAllAtividadesAPI = async () => {
+        const data = await customGet('/fornecedores');
+        setAtividades(data);
+    };
+    getAllAtividadesAPI();
   }
 
 function pegarAtividade(id) {
   const atividade = atividades.filter((atividade) => atividade.id === id );
   setAtividade(atividade[0]);
 }
-
-
 
   return (
     <div style={{margin: '2%'}}>
