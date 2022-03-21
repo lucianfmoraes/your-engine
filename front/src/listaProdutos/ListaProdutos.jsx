@@ -4,7 +4,7 @@ import carburador from '../img/carburador_santana.jpg';
 import './ListaProdutos.css';
 
 
-const ListaProdutos = () => {
+export const ListaProdutos = () => {
     return(
         <div className="listaProdutos">
             <ContainerFiltros />
@@ -13,7 +13,7 @@ const ListaProdutos = () => {
     )
 };
 
-const ContainerFiltros = () => (
+export const ContainerFiltros = () => (
     <div className="containerFiltros">
         <label>Filtro 1</label>
         <label>Filtro 2</label>
@@ -30,7 +30,7 @@ const ContainerProduto = ({produtos}) => (
     </div>
 );
 
-const CardProduto = ({ preco, nome, foto, vendedor }) => (
+export const CardProduto = ({ preco, nome, foto, vendedor }) => (
     
         <div className="containerProduto">
             <div className="cardFoto">
@@ -87,4 +87,5 @@ const produtos = [
     
 ]
 
-export default ListaProdutos;
+
+//export default ListaProdutos;

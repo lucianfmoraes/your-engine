@@ -6,9 +6,11 @@ from cliente import Cliente
 from fornecedor import Fornecedor
 from peca import Peca
 
+
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 #######################################################
 
 @app.route('/')
@@ -16,6 +18,7 @@ def hello():
     return 'hello world'
 
 @app.route("/fornecedores")
+@cross_origin()
 def listaTodosFornecedores():
     fornecedor = Fornecedor()
     resultado = fornecedor.listaTodos()

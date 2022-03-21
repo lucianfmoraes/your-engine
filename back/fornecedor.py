@@ -8,8 +8,19 @@ class Fornecedor(Conexao):
         cursor = conn.cursor()
         df = cursor.execute('''SELECT * from tb_fornecedor''')
         data = cursor.fetchall()
+        response = [{
+            'id': row[0], 
+            'cadastro': row[1], 
+            'logradouro': row[2], 
+            'numero_logradouro': row[3],
+            'cep': row[4],
+            'complemento_logradouro': row[5],
+            'telefone': row[6],
+            'email': row[7],
+            'nome': row[8]
+            } for row in data   ]
         conn.close()
-        return data
+        return response
 
     def insereFornecedor(self, body):
         conn = self.CriaConexao()

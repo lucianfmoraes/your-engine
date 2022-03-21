@@ -1,12 +1,13 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown, Form, Button, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Navbar2 = () => {
 
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+                <Navbar.Brand> <Link to="/">Home</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -14,11 +15,12 @@ const Navbar2 = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#action1">Home</Nav.Link>
-                    <Nav.Link href="#action2">Link</Nav.Link>
+                    <Nav.Link > <Link to="/fornecedor">Fornecedor</Link></Nav.Link>
+                    <Nav.Link > <Link to="/peca">Peça</Link></Nav.Link>
+                    <Nav.Link > <Link to="/cliente">Cliente</Link></Nav.Link>
                     <NavDropdown title="Link" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
                         Something else here
