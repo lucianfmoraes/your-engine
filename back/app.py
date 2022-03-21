@@ -1,5 +1,4 @@
 
-from http import client
 from flask import Flask, json, jsonify, request
 from flask_cors import CORS, cross_origin
 from flaskext.mysql import MySQL
@@ -33,7 +32,6 @@ def insereFornecedor():
 def alteraFornecedor():
     fornecedor = Fornecedor()
     body = request.json()
-    print("PASSOU")
     resultado = fornecedor.alteraFornecedor(body)
     return jsonify(resultado)
 

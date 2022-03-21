@@ -22,9 +22,9 @@ class Peca(Conexao):
         conn = self.CriaConexao()
         cursor = conn.cursor()
         print(body['nome'])
-        df = cursor.execute(''' UPDATE tb_peca SET cadastro=%s, logradouro=%s, numero_logradouro=%s, cep=%s,
-        complemento_logradouro=%s  telefone=%s, email=%s, nome=%s WHERE id=%s,''' ,(body['cadastro'], body['logradouro'],body['numero_logradouro'],
-        body['cep'],body['complemento_logradouro'],body['telefone'], body['email'], body['nome'], body['id']))
+        df = cursor.execute(''' UPDATE tb_peca SET nome=%s, ano=%s, marca=%s, estado=%s,
+        quantidade=%s,  valor=%s, id_fornecedor=%s WHERE id=%s''' ,(body['nome'], body['ano'],body['marca'],
+        body['estado'],body['quantidade'],body['valor'],  body['id_fornecedor'], body['id']))
         conn.commit()
         conn.close()
 

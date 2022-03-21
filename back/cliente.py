@@ -26,7 +26,7 @@ class Cliente(Conexao):
         cursor = conn.cursor()
         print(body['nome'])
         df = cursor.execute(''' UPDATE tb_cliente SET cadastro=%s, logradouro=%s, numero_logradouro=%s, cep=%s,
-        complemento_logradouro=%s  telefone=%s, email=%s, nome=%s WHERE id=%s,''' ,(body['cadastro'], body['logradouro'],body['numero_logradouro'],
+        complemento_logradouro=%s,  telefone=%s, email=%s, nome=%s WHERE id=%s''' ,(body['cadastro'], body['logradouro'],body['numero_logradouro'],
         body['cep'],body['complemento_logradouro'],body['telefone'], body['email'], body['nome'], body['id']))
         conn.commit()
         conn.close()
