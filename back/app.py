@@ -6,7 +6,6 @@ from cliente import Cliente
 from fornecedor import Fornecedor
 from peca import Peca
 
-#test discord bot
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
