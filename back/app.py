@@ -7,8 +7,10 @@ from fornecedor import Fornecedor
 from peca import Peca
 ##
 app = Flask(__name__)
-cors = CORS(app)
+# cors = CORS(app)
+cors = CORS(app, resources={r"/fornecedores/*": {"origins": "http://localhost:3000"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
+# app.config['CORS_RESOURCES'] = {r"/fornecedores/*": {"origins": "http://localhost:4000"}}
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 #######################################################
 
@@ -17,14 +19,12 @@ def hello():
     return 'hello world'
 
 @app.route("/fornecedores")
-@cross_origin()
 def listaTodosFornecedores():
     fornecedor = Fornecedor()
     resultado = fornecedor.listaTodos()
     return jsonify(resultado)
 
 @app.route("/fornecedores",  methods=['POST'])
-@cross_origin()
 def insereFornecedor():
     fornecedor = Fornecedor()
     corpo = request.json
