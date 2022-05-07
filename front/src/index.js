@@ -13,6 +13,7 @@ import Navbar2 from './shared/Navbar';
 import Home from './home/Home';
 import FornecedorForm from './fornecedor/FornecedorForm';
 import Fornecedor from './fornecedor/Fornecedor';
+import ProdutoDetails from './produtoDetails/ProdutoDetails';
 
 const rootElement = document.getElementById("root");
 
@@ -22,7 +23,8 @@ render(
   <Navbar2 />
     <Routes>
       <Route path="/" element={<Home/>}  />
-      <Route path="fornecedor" element={<Fornecedor />} />
+      <Route path="/fornecedor" element={<Fornecedor />} />
+      <Route path="/produto/:id" element={<ProdutoDetails/>} />
     </Routes>
   </BrowserRouter>,
   rootElement
