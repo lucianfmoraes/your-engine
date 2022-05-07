@@ -7,8 +7,8 @@ from fornecedor import Fornecedor
 from peca import Peca
 ##
 app = Flask(__name__)
-# cors = CORS(app)
-cors = CORS(app, resources={r"/fornecedores/*": {"origins": "http://localhost:3000"}})
+#cors = CORS(app)
+cors = CORS(app, resources={r"/fornecedor/*": {"origins": "http://localhost:3000"}})
 cors = CORS(app, resources={r"/peca/*": {"origins": "http://localhost:3000"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 # app.config['CORS_RESOURCES'] = {r"/fornecedores/*": {"origins": "http://localhost:4000"}}

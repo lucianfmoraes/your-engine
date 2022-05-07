@@ -11,7 +11,7 @@ function Fornecedor() {
 
   useEffect(() => {
     const response = async () => {
-        const data = await customGet('/fornecedores');
+        const data = await customGet('/fornecedor');
         setAtividades(data);
     };
     response();
@@ -28,7 +28,7 @@ function Fornecedor() {
     addAtividadeAPI(ativ);
     
     const getAllAtividadesAPI = async () => {
-        const data = await customGet('/fornecedores');
+        const data = await customGet('/fornecedor');
         setAtividades(data);
     };
     getAllAtividadesAPI();
@@ -52,7 +52,7 @@ function Fornecedor() {
 
   function deletarAtividade(id){
     const deleteFornecedorAPI = async (id) => {
-        const data = await customPost(`/fornecedores/excluir/${id}`);
+        const data = await customPost(`/fornecedor/excluir/${id}`);
     };
     deleteFornecedorAPI(id);
     const getAllAtividadesAPI = async () => {

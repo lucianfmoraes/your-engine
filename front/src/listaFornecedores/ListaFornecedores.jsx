@@ -8,7 +8,7 @@ const ListaFornecedores = () => {
     
     useEffect( () => {
         const response = async () => {
-          const data = await customGet('/fornecedores');
+          const data = await customGet('/fornecedor');
           setState(data);
         };
         response();

@@ -8,10 +8,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import ListaFornecedores from './listaFornecedores/ListaFornecedores';
 import Navbar2 from './shared/Navbar';
 import Home from './home/Home';
-import FornecedorForm from './fornecedor/FornecedorForm';
 import Fornecedor from './fornecedor/Fornecedor';
 import ProdutoDetails from './produtoDetails/ProdutoDetails';
 
