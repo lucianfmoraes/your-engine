@@ -6,6 +6,11 @@ const api = axios.create({
   headers: {'X-Custom-Header': 'foobar', 'Accept': '*/*'},
 });
 
+const outerApi = axios.create({
+  timeout: 6000,
+  headers: {'X-Custom-Header': 'foobar', 'Accept': '*/*'},
+});
+
 export const customGet = async (endpoint) => {
   const res = await api.get(endpoint);
   return res.data;
@@ -14,6 +19,11 @@ export const customGet = async (endpoint) => {
 export const customPost = async (endpoint, data) => {
   const res = await api.post(endpoint, data)
   return res.status
+}
+
+export const outGet = async (endpoint) => {
+  const res = await outerApi.get(endpoint);
+  return res.data;
 }
 
 export const customPostJSON = async (endpoint, data) => {

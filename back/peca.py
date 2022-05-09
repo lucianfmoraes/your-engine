@@ -12,7 +12,8 @@ class Peca(Conexao):
     def listaTodas(self):
         conn = self.CriaConexao()
         cursor = conn.cursor()
-        df = cursor.execute('''SELECT * from tb_peca ''')
+        df = cursor.execute('''SELECT P.id, P.nome, P.ano, P.marca, P.estado, P.quantidade, P.valor, F.nome from tb_peca P 
+                                INNER JOIN tb_fornecedor F ON P.id_fornecedor = F.id  ''')
         data = cursor.fetchall()
         response = [{
             'id': row[0],
@@ -22,7 +23,7 @@ class Peca(Conexao):
             'estado': row[4],
             'quantidade': row[5],
             'valor': row[6],
-            'id_fornecedor': row[7]
+            'fornecedor_nome': row[7]
         } for row in data]
         conn.close()
         return response
@@ -30,7 +31,10 @@ class Peca(Conexao):
     def listaPorId(self, id):
         conn = self.CriaConexao()
         cursor = conn.cursor()
-        df = cursor.execute('''SELECT * from tb_peca WHERE id=%s''', (id))
+        df = cursor.execute(''' SELECT P.id, P.nome, P.ano, P.marca, P.estado, P.quantidade, P.valor, F.nome, F.logradouro, F.id 
+                                FROM tb_peca P 
+                                LEFT JOIN tb_fornecedor AS F ON P.id_fornecedor = F.id
+                                WHERE P.id=%s''', (id))
         data = cursor.fetchall()
         if not data:
             return None
@@ -42,7 +46,8 @@ class Peca(Conexao):
             'estado': d[4],
             'quantidade': d[5],
             'valor': d[6],
-            'id_fornecedor':d[7]
+            'id_fornecedor':d[7],
+            'endereco': d[8]
         } for d in data]
         conn.close()
         return data[0]
