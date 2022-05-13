@@ -31,7 +31,7 @@ class Peca(Conexao):
     def listaPorId(self, id):
         conn = self.CriaConexao()
         cursor = conn.cursor()
-        df = cursor.execute(''' SELECT P.id, P.nome, P.ano, P.marca, P.estado, P.quantidade, P.valor, F.nome, F.logradouro, F.id 
+        df = cursor.execute(''' SELECT P.id, P.nome, P.ano, P.marca, P.estado, P.quantidade, P.valor, F.id, F.logradouro, F.numero_logradouro 
                                 FROM tb_peca P 
                                 LEFT JOIN tb_fornecedor AS F ON P.id_fornecedor = F.id
                                 WHERE P.id=%s''', (id))
@@ -47,7 +47,8 @@ class Peca(Conexao):
             'quantidade': d[5],
             'valor': d[6],
             'id_fornecedor':d[7],
-            'endereco': d[8]
+            'endereco': d[8],
+            'numero': d[9]
         } for d in data]
         conn.close()
         return data[0]

@@ -15,10 +15,10 @@ const ProdutoDetails = () => {
         response();
     }, [id])
     if (!state) return <h1>Loading..</h1>
-    return <Produto id={state['id']} nome={state['nome']} ano={state['ano']} marca={state['marca']} endereco={state['endereco']}/>;
+    return <Produto id={state['id']} nome={state['nome']} ano={state['ano']} marca={state['marca']} endereco={state['endereco']} numero={state['numero']}/>;
 }
 
-const Produto = ({id, nome, ano, marca, endereco}) => {
+const Produto = ({id, nome, ano, marca, endereco, numero}) => {
     const [latLon, setLatlon] = useState({lat: undefined, lon:undefined});
     useEffect(()=>{
         const getLatLong = async () => {
@@ -39,7 +39,7 @@ const Produto = ({id, nome, ano, marca, endereco}) => {
                 <ProdutoInfos nome={nome} ano={ano} marca={marca}/>
             </div>
             <div>
-                {endereco}
+                {endereco}, {numero}
             </div>
         </div>
         <div className='wazeframe'>

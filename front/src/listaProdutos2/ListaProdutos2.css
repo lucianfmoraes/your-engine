@@ -1,0 +1,66 @@
+.cardFoto {
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardPreco {
+    background-color: red;
+    font-size: x-large;
+}
+
+.cardNome {
+    background-color: blueviolet;
+    font-size: x-large;
+    font-weight: 350;
+}
+
+.cardSeller {
+    font-size: small;
+    font-weight: 350;
+}
+
+.cardFooter {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.containerInfos {
+    display: grid;
+    grid-template-rows: 45% 55%;
+    background-color: chartreuse;
+}
+
+.containerProduto {
+    display: grid; 
+    margin: 5px;
+    border-radius: 5px;
+    grid-template-columns: 25% 75%;
+    background-color: aqua;
+}
+
+
+
+/* -- CONTAINER DE FILTROS --*/
+
+.containerFiltros{
+    display:grid;
+    margin: 5px;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+
+/* -- LISTA DE PRODUTOS --*/
+
+.listaProdutos {
+    padding:2%; 
+    margin:2%; 
+    background-color: grey;
+    display:grid; 
+    grid-template-columns:25% 75%;
+    border-radius:5px;
+}
+
+
+

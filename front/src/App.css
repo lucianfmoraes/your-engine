@@ -2,6 +2,15 @@
   /* text-align: center; */
 }
 
+.Link {
+  text-decoration: none;
+  color:#112B3C;
+}
+
+.Link:hover {
+  color: #F66B0E;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
