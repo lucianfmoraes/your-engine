@@ -1,6 +1,8 @@
 .cardFoto {
     background-color: white;
     border-radius: 5px;
+  
+    background-color: red;
 }
 
 .cardPreco {
@@ -37,6 +39,7 @@
     margin-right: 50px;
     -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
 }
 .cardProduto:hover {
     box-shadow: 5px 5px 5px rgb(207, 207, 207);
@@ -68,7 +71,9 @@
 .listaProdutos {
     padding:2%; 
     padding-top: 1%;
-    margin:2%; 
+    margin: auto; 
+    margin-top: 10px;
+    width: 75%;
     background-color: #EFEFEF;
     display:grid; 
     grid-template-columns:25% 25% 25% 25%;

@@ -37,27 +37,28 @@ export const ContainerFiltros = () => (
 
 
 export const CardProduto = ({ id, preco, nome, foto, vendedor }) => (
-    <Link to={`/produto/${id}`} className="linkProduto" >
         <div className="cardProduto">
-            <div className="cardFoto">
-                { /*<img src={`data:image/jpeg;base64,${qr_code_base64}`} height='150px' width='150px'/> */}
-                <img src={foto} alt="an auto-part" height='100%' width='100%' style={{borderRadius:'5px'}}/>
-                <hr style={{margin: '0px'}} />
-            </div>
-            <div className="containerInfos">
-                <div className="cardNome">
-                    {nome}
+            <Link to={`/produto/${id}`} className="linkProduto" >
+                <div className="cardFoto">
+                    { /*<img src={`data:image/jpeg;base64,${qr_code_base64}`} height='150px' width='150px'/> */}
+                    <img src={foto} alt="an auto-part" height='100%' width='100%' style={{borderRadius:'5px'}}/>
+                    <hr style={{margin: '0px'}} />
+                </div>
+                <div className="containerInfos">
+                    <div className="cardNome">
+                        {nome}
+                        
+                    </div>
+                    
+                    <div className="cardFooter">
+                        <div className="cardPreco" >R$ {preco}</div>
+                        <div className="cardReputacao">Reputação: *****</div>
+                    </div>
                     
                 </div>
-                
-                <div className="cardFooter">
-                    <div className="cardPreco" >R$ {preco}</div>
-                    <div className="cardReputacao">Reputação: *****</div>
-                </div>
-                
-            </div>
+            </Link>
         </div>
-    </Link>
+    
     
 )
 
