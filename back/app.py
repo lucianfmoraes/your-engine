@@ -4,12 +4,14 @@ from flask_cors import CORS, cross_origin
 from flaskext.mysql import MySQL
 from cliente import Cliente
 from fornecedor import Fornecedor
+from pagamento import Pagamento
 from peca import Peca
 ##
 app = Flask(__name__)
 #cors = CORS(app)
 cors = CORS(app, resources={r"/fornecedor/*": {"origins": "http://localhost:3000"}})
 cors = CORS(app, resources={r"/peca/*": {"origins": "http://localhost:3000"}})
+cors = CORS(app, resources={r"/pagamento/*": {"origins": "http://localhost:3000"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 # app.config['CORS_RESOURCES'] = {r"/fornecedores/*": {"origins": "http://localhost:4000"}}
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
@@ -121,6 +123,14 @@ def listaPorId(id):
     resultado = peca.listaPorId(id)
     return jsonify(resultado)
 
+
+### PAGAMENTO ###
+@app.route("/pagamento", methods=['POST'])
+def efetuarPagamentoPIX():
+    pagamento = Pagamento()
+    body = request.json
+    response = pagamento.efetuarPix(body)
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run()
